@@ -1,0 +1,8 @@
+
+<% @reservations.each do |r| %>
+    <p>チェックイン：<%= r.check_in %><br></p>
+    <p>チェックアウト：<%= r.check_out %><br></p>
+    <p>人数：<%= r.person %><br></p>
+    <p>作成日：<%= r.created_at %><br></p>
+    <p>更新日：<%= r.updated_at %></p>
+<% end %>

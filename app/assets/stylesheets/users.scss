@@ -1,0 +1,16 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.show_container {
+    margin: 30px 50px 
+}
+
+.account_settings {
+    justify-content: space-between;
+    margin: 50px 70px 210px 70px;
+}
+
+.account_settings_top {
+    display: flex;
+    justify-content: space-between;
+}

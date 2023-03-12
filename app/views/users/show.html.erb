@@ -1,0 +1,89 @@
+
+<div class="show_container">
+  <h1>設定</h1>
+
+  <nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+      <button
+        class="nav-link active"
+        id="nav-home-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#nav-home"
+        type="button"
+        role="tab"
+        aria-controls="nav-home"
+        aria-selected="true"
+      >
+        アカウント
+      </button>
+      <button
+        class="nav-link"
+        id="nav-profile-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#nav-profile"
+        type="button"
+        role="tab"
+        aria-controls="nav-profile"
+        aria-selected="false"
+      >
+        プロフィール
+      </button>
+    </div>
+  </nav>
+  <div class="tab-content" id="nav-tabContent">
+    <div
+      class="tab-pane fade show active"
+      id="nav-home"
+      role="tabpanel"
+      aria-labelledby="nav-home-tab"
+    >
+      <div class="account_settings">
+          <div class="account_settings_top">
+              <h2>アカウント</h2>
+              <%= link_to("アカウント編集（修正必要）", edit_user_registration_path, class: "btn btn-primary") %>   
+          </div>
+          <div class ="account_settings_main">
+              <table>
+                  <tr>
+                      <th>メールアドレス</th>
+                      <td><%= current_user.email %></td>
+                  </tr>
+                  <tr>
+                      <th>パスワード</th>
+                      <td>*********</td>
+                  </tr>
+              </table>
+          </div>
+      </div>
+    </div>
+    <div
+      class="tab-pane fade"
+      id="nav-profile"
+      role="tabpanel"
+      aria-labelledby="nav-profile-tab"
+    >
+      <div class="account_settings">
+          <div class="account_settings_top">
+              <h2>プロフィール</h2>
+              <%= link_to("プロフィール編集", edit_user_registration_path, class: "btn btn-primary") %>   
+          </div>
+          <div class ="account_settings_main">
+              <table>
+                  <tr>
+                      <th>アイコン画像</th>
+                      <td><img src=<%= current_user.image %>></td>
+                  </tr>
+                  <tr>
+                      <th>名前</th>
+                      <td><%= current_user.name %></td>
+                  </tr>
+                  <tr>
+                      <th>自己紹介</th>
+                      <td><%= current_user.introduction %></td>
+                  </tr>
+              </table>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

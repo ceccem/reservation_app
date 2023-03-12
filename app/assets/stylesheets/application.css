@@ -1,0 +1,169 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ /* 共通ヘッダー */
+ .header {
+   width: 100%;
+   height: 80px; 
+   background-color: #1c1d3b;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+ }
+
+.top_logo {
+   color: white;
+   font-size:38px;
+   text-decoration: none;
+   margin-left: 35px;
+ }
+
+.top_nav {
+   color: white;
+   font-size:16px;
+   font-weight: 400;
+   text-decoration: none;
+   margin-right: 35px;
+ }
+
+ /* 共通ヘッダーハンバーガー時 */
+
+ .top_nav_hide {
+   display: flex;
+   color: black;
+   text-decoration: none;
+   margin-right: 30px;
+ }
+
+ .navbar_toggler {
+   position: fixed;
+ }
+
+
+ /* 共通フッター */
+.footer {
+   height: 465px;
+   background-color: #1c1d3b;
+   color: white;
+   align-items: center;
+}
+
+.footer_container {
+   padding-top: 200px; 
+   padding-left: 30px;
+}
+
+.footer_logo {
+   font-size: 38px;
+   color: white;
+   text-decoration: none;
+}
+
+.footer_message {
+   font-size: 10px;
+}
+
+ /* TOPページ */
+.first_view {
+   width: 100%;
+   height: 750px;
+   background-image: url('cover-lg.jpg');
+   background-size: cover;
+   background-position-x: 50%;
+   background-position-y: 50%;
+   margin-bottom: 180px;
+   padding-top: 80px;
+}
+
+.first_view_cotainer {
+   height: 400px;
+}
+
+.first_view_title {
+   color: white;
+   font-size: 84px;
+   font-weight: 400;
+   text-align: center;
+}
+
+.first_view_search {
+   display: flex;
+   align-items: center;
+   position: relative;
+   margin-top: 30px;
+}
+
+.d-flex {
+   width: 50%;
+   position: absolute;
+   top: 50%;
+   left: 25%;
+}
+
+.first_view_main {
+   margin-bottom: 260px;
+}
+
+.first_view_card {
+   display: flex;
+   flex-wrap: wrap;
+   margin: 50px 200px;
+}
+
+.card {
+   margin-right: 20px;
+   margin-bottom: 20px;
+   border-radius: 500px;
+}
+
+/* カード写真 */
+
+.tokyo_card {
+   background-image: url('tokyo.jpg');
+   background-size: cover;
+   background-position-x: 40%;
+   height: 350px;
+}
+
+.osaka_card {
+   background-image: url('osaka.jpg');
+   background-size: cover;
+   background-position-y: 35%;
+   height: 350px;
+}
+
+.kyoto_card {
+   background-image: url('kyoto.jpg');
+   background-size: cover;
+   height: 350px;
+}
+
+.sapporo_card {
+   background-image: url('sapporo.jpg');
+   background-size: cover;
+   height: 350px;
+}
+
+/* room_form */
+.room_form {
+   text-align: center;
+   align-items: center;
+   margin: 20px 180px;
+}
+
+.room_index_table {
+   margin: 50px 70px 210px 70px;
+}
