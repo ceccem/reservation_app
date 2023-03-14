@@ -1,29 +1,24 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>施設名:</strong>
-  <%= @room.name %>
-</p>
+<div class="room_show">
+  <div class="room_show_bar">
+    <%= link_to '戻る', rooms_path %>
+  </div>
+  <div class="room_show_content">
+    <div class="room_show_content_left">
+      <img src=<%= @room.image %>>
+    </div>
+    <div class="room_show_content_right">
+      <%= @room.name %><br>
+      <%= @room.address %><br>
+      <%= @room.detail %>
+      <p>チェックイン</p>
+      <p>チェックアウト</p>
+      <p>人数</p>
+      <button type="button" class="btn btn-primary">予約する</button>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>施設詳細:</strong>
-  <%= @room.detail %>
-</p>
-
-<p>
-  <strong>料金:</strong>
-  <%= @room.price %>
-</p>
-
-<p>
-  <strong>住所:</strong>
-  <%= @room.address %>
-</p>
-
-<p>
-  <strong>写真:</strong>
-  <img src=<%= @room.image %>>
-</p>
 
 <%= link_to '編集', edit_room_path(@room) %> |
-<%= link_to '戻る', rooms_path %>

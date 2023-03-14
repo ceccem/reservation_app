@@ -1,6 +1,6 @@
-<h1>リザーブのURL</h1>
+<h1>施設詳細・予約</h1>
 
-<%= form_with model: @reservation, url: reservations_path, scope: :reservation do |r| %>
+<%= form_with model: @reservation, url: "/reservations/confirm" do |r| %>
     <table>
         <tr>
             <td><%= r.label :check_in ,"チェックイン" %></td>

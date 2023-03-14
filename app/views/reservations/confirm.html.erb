@@ -1,0 +1,13 @@
+<h1>確認画面</h1>
+<%= "チェックイン：#{@reservation.check_in}" %><br>
+<%= "チェックアウト：#{@reservation.check_out}" %><br>
+<%= "日数：#{(@reservation.check_out - @reservation.check_in).to_i}" %><br>
+<%= "人数：#{@reservation.person}" %><br>
+<%= "お支払い金額：" %>
+
+<%= form_with model: @reservation, url: "/reservations" do |r| %>
+    <p><%= r.hidden_field :check_in %></p>
+    <p><%= r.hidden_field :check_out %></p>
+    <p><%= r.hidden_field :person %></p>
+<%= r.submit "保存" %>    
+<% end %>

@@ -21,8 +21,8 @@ class RoomsController < ApplicationController
 
   # POST /rooms or /rooms.json
   def create
-    @room = Room.new(room_params)
-
+    @room = Room.new(params.require(:room).permit(:name, :detail, :price, :address, :image, :user_id))
+    @room.user_id = current_user.id
     respond_to do |format|
       if @room.save
         format.html { redirect_to room_url(@room), notice: "Room was successfully created." }
@@ -55,6 +55,10 @@ class RoomsController < ApplicationController
       format.html { redirect_to rooms_url, notice: "Room was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def own
+    @rooms = Room.all
   end
 
   private

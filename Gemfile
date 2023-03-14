@@ -67,3 +67,6 @@ gem 'pry-rails'
 
 # 画像取り込み
 gem 'carrierwave'
+
+# 画像サイズ調整
+gem 'mini_magick'

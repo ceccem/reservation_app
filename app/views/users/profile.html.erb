@@ -1,0 +1,8 @@
+<h1>プロフ編集</h1>
+
+<%= form_with model: @user, url: users_profile_path, scope: :user do |user| %>
+    <%= user.label :name ,"名前" %>
+    <%= user.text_field :name %>
+
+    <%= user.submit %>
+<% end %>

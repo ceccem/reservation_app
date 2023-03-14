@@ -1,8 +1,34 @@
+<div class="reservation_index_table">
+  <h1>予約済み一覧</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">画像</th>
+        <th scope="col">施設名</th>
+        <th scope="col">紹介文</th>
+        <th scope="col">合計料金</th>
+        <th scope="col">チェックイン</th>
+        <th scope="col">チェックアウト</th>
+        <th scope="col">予約確定日時</th>
+        <th scope="col">再予約</th>
+        <th scope="col">予約を削除</th>
+      </tr>
+    </thead>
 
-<% @reservations.each do |r| %>
-    <p>チェックイン：<%= r.check_in %><br></p>
-    <p>チェックアウト：<%= r.check_out %><br></p>
-    <p>人数：<%= r.person %><br></p>
-    <p>作成日：<%= r.created_at %><br></p>
-    <p>更新日：<%= r.updated_at %></p>
-<% end %>
+    <tbody>
+      <% @reservations.each do |r| %>
+        <tr>
+          <td scope="row">ルーム写真</td>
+          <td>施設名</td>
+          <td>紹介文</td>
+          <td>合計料金</td>
+          <td><%= r.check_in.strftime("%Y/%m/%d") %></td>
+          <td><%= r.check_out.strftime("%Y/%m/%d") %></td>
+          <td><%= r.created_at.to_s(:datetime_jp) %></td>
+          <td><%= link_to("再予約", new_reservation_path) %></td>
+          <td><%= link_to('施設を削除', "/reservations/#{r.id}", method: :delete) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
