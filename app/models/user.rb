@@ -7,5 +7,6 @@ class User < ApplicationRecord
 
 
   mount_uploader :image, ImageUploader
-  has_many :rooms
+  has_many :rooms, class_name: "Room", foreign_key: "user_id"
+  has_many :reservations, class_name: "Reservation", foreign_key: "user_id"
 end

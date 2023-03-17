@@ -1,24 +1,30 @@
-<p id="notice"><%= notice %></p>
-
 <div class="room_show">
   <div class="room_show_bar">
-    <%= link_to '戻る', rooms_path %>
+    <%= link_to '戻る', :back, class: "btn btn-outline-primary" %>
+    <%= link_to '編集', edit_room_path(@room), class: "btn btn-outline-primary" %>
   </div>
   <div class="room_show_content">
     <div class="room_show_content_left">
       <img src=<%= @room.image %>>
     </div>
     <div class="room_show_content_right">
-      <%= @room.name %><br>
-      <%= @room.address %><br>
-      <%= @room.detail %>
-      <p>チェックイン</p>
-      <p>チェックアウト</p>
-      <p>人数</p>
-      <button type="button" class="btn btn-primary">予約する</button>
+      <h2>施設名：<%= @room.name %><br></h2>
+      <p>金額：<%= @room.price %></p>
+      <p>住所：<%= @room.address %><br><p>
+      <p>詳細：<%= @room.detail %></p>
+
+      <%= form_with model:@reservation, url: "/reservations/confirm" do |r| %>
+        <%= r.label :check_in, "チェックイン" %><br>
+        <%= r.date_field :check_in %><br>
+        <%= r.label :check_out, "チェックアウト" %><br>
+        <%= r.date_field :check_out %><br>
+        <%= r.label :person, "人数" %><br>
+        <%= r.text_field :person %><br>
+        <%= r.hidden_field :user_id, value: @reservation.user_id %>
+        <%= r.hidden_field :room_id, value: @reservation.room_id %>
+        <%= r.submit value: "予約する", class: "btn btn-primary"%>
+      <% end %>
+
     </div>
   </div>
 </div>
-
-
-<%= link_to '編集', edit_room_path(@room) %> |

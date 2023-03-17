@@ -17,17 +17,19 @@
 
     <tbody>
       <% @reservations.each do |r| %>
+      <% @rooms.each do |rom| %>
         <tr>
-          <td scope="row">ルーム写真</td>
-          <td>施設名</td>
-          <td>紹介文</td>
-          <td>合計料金</td>
+          <td scope="row"><img src=<%= rom.image %>></td>
+          <td><%= rom.name %></td>
+          <td><%= rom.detail %></td>
+          <td><%= rom.price %></td>
           <td><%= r.check_in.strftime("%Y/%m/%d") %></td>
           <td><%= r.check_out.strftime("%Y/%m/%d") %></td>
           <td><%= r.created_at.to_s(:datetime_jp) %></td>
           <td><%= link_to("再予約", new_reservation_path) %></td>
           <td><%= link_to('施設を削除', "/reservations/#{r.id}", method: :delete) %></td>
         </tr>
+      <% end %>
       <% end %>
     </tbody>
   </table>

@@ -4,10 +4,14 @@ class RoomsController < ApplicationController
   # GET /rooms or /rooms.json
   def index
     @rooms = Room.all
+    @room = Room.find_by(id: params[:id])
   end
 
   # GET /rooms/1 or /rooms/1.json
   def show
+    @room = Room.find(params[:id])
+    @user = current_user
+    @reservation = Reservation.new
   end
 
   # GET /rooms/new

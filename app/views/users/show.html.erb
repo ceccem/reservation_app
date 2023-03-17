@@ -87,8 +87,9 @@
     </div>
   </div>
 </div>
-<div class="testdesu">
-  <% @rooms.each do |t| %>
-    <% t.name %>
-  <% end %>
-</div>
+
+<%= form_with model: @room do |r| %>
+  <%= r.label :name, "名前" %>
+  <%= r.text_field :name %>
+  <%= r.submit "投稿する" %>
+<% end %>

@@ -10,9 +10,11 @@
           <div class="card">
             <img src=<%= r.image %>>
             <div class="card-body">
-              <a href="/", class="card-title"><%= r.name %></h5></a>
+              <h6 class="card-title"><%= r.name %></h6>
               <p><%= r.address %></p>
-              <p class="card-text"><% r.detail %></p>
+              <p class="card-text"><%= r.detail %></p>
+              <%= r.price %>
+              <%= link_to("詳細", "/", class: "btn btn-primary") %>
             </div>
           </div>
         </div>

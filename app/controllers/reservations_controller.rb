@@ -1,6 +1,7 @@
 class ReservationsController < ApplicationController
   def index
     @reservations = Reservation.all
+    @rooms = Room.all
   end
 
   def new
@@ -9,10 +10,14 @@ class ReservationsController < ApplicationController
   end
 
   def create
-    @reservation = Reservation.new(params.require(:reservation).permit(:check_in, :check_out, :person))
-    @reservation.save
-    flash[:notice] = "登録しました"
-    redirect_to "/reservations"
+    @reservation = Reservation.new(params.require(:reservation).permit(:check_in, :check_out, :person, :user_id, :room_id))
+    if @reservation.save
+      flash[:notice] = "登録しました"
+      redirect_to "/reservations"
+    else
+      flash[:notice] = "登録に失敗しました"
+      render room
+    end
   end
 
   def show
@@ -31,13 +36,17 @@ class ReservationsController < ApplicationController
   end
 
   def confirm
-    @reservation = Reservation.new(params.require(:reservation).permit(:check_in, :check_out, :person))
+    @reservation = Reservation.new(params.require(:reservation).permit(:check_in, :check_out, :person, :user_id, :room_id))
+    if @reservation.check_in.nil? || @reservation.check_out.nil? || @reservation.person.nil? || @reservation.check_in >= @reservation.check_out
+      flash[:notice] = "入力内容に不備があります"
+      redirect_back(fallback_location: root_path)
+    end
   end
 
 
   private
     def permit_params
-      @attr = params.require(:reservation).permit(:check_in, :check_out, :person)
+      @attr = params.require(:reservation).permit(:check_in, :check_out, :person, :user_id, :room_id)
     end
 
 
