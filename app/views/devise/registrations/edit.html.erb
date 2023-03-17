@@ -4,6 +4,37 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
+    <%= f.label :image, value: "プロフィール画像" %><br />
+    <%= f.file_field :image, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :name, value: "名前" %><br />
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :introduction, value: "自己紹介" %><br />
+    <%= f.text_area :introduction, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :current_password %> <i>(<%= t('.we_need_your_current_password_to_confirm_your_changes') %>)</i><br />
+    <%= f.password_field :current_password, autocomplete: "current-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit t('.update') %>
+  </div>
+<% end %>
+
+
+
+<%
+=begin %>
+以下初期編集画面にあったもの
+
+<div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
@@ -26,28 +57,12 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
-  <div class="field">
-    <%= f.label :introduction, value: "自己紹介" %><br />
-    <%= f.text_area :introduction, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :image, value: "プロフィール画像" %><br />
-    <%= f.file_field :image, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(<%= t('.we_need_your_current_password_to_confirm_your_changes') %>)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit t('.update') %>
-  </div>
-<% end %>
 
 <h3><%= t('.cancel_my_account') %></h3>
 
 <div><%= t('.unhappy') %> <%= button_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure'), turbo_confirm: t('.are_you_sure') }, method: :delete %></div>
 
 <%= link_to t('devise.shared.links.back'), :back %>
+
+<%
+=end %>
