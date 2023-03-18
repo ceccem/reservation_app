@@ -12,8 +12,9 @@
       <p>金額：<%= @room.price %></p>
       <p>住所：<%= @room.address %><br><p>
       <p>詳細：<%= @room.detail %></p>
+      <p>詳細：<%= @room.id %></p>
 
-      <%= form_with model:@reservation, url: "/reservations/confirm" do |r| %>
+      <%= form_with model: @reservation, url: "/reservations/confirm" do |r| %>
         <%= r.label :check_in, "チェックイン" %><br>
         <%= r.date_field :check_in %><br>
         <%= r.label :check_out, "チェックアウト" %><br>
@@ -21,7 +22,7 @@
         <%= r.label :person, "人数" %><br>
         <%= r.text_field :person %><br>
         <%= r.hidden_field :user_id, value: @reservation.user_id %>
-        <%= r.hidden_field :room_id, value: @reservation.room_id %>
+        <%= r.hidden_field :user_id, value: @room.id %>
         <%= r.submit value: "予約する", class: "btn btn-primary"%>
       <% end %>
 

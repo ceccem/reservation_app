@@ -17,6 +17,7 @@ class RoomsController < ApplicationController
   # GET /rooms/new
   def new
     @room = Room.new
+    @user = current_user
   end
 
   # GET /rooms/1/edit
@@ -26,7 +27,7 @@ class RoomsController < ApplicationController
   # POST /rooms or /rooms.json
   def create
     @room = Room.new(params.require(:room).permit(:name, :detail, :price, :address, :image, :user_id))
-    @room.user_id = current_user.id
+    @user= current_user
     respond_to do |format|
       if @room.save
         format.html { redirect_to room_url(@room), notice: "Room was successfully created." }
@@ -62,7 +63,7 @@ class RoomsController < ApplicationController
   end
 
   def own
-    @rooms = Room.all
+    @rooms = Room.where(user_id: current_user.id)
   end
 
   private

@@ -22,7 +22,7 @@
           <td><%= link_to(room.name, room, :style => "text-decoration: none;") %></td>
           <td><%= room.detail %></td>
           <td><%= room.price %></td>
-          <td><%= room.created_at %></td>
+          <td><%= room.created_at.to_s(:datetime_jp) %></td>
           <td><%= link_to '編集', edit_room_path(room) %></td>
           <td><%= link_to '施設を削除', room, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>

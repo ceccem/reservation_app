@@ -12,6 +12,7 @@ class ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(params.require(:reservation).permit(:check_in, :check_out, :person, :user_id, :room_id))
     if @reservation.save
+      binding.pry
       flash[:notice] = "登録しました"
       redirect_to "/reservations"
     else
@@ -37,6 +38,7 @@ class ReservationsController < ApplicationController
 
   def confirm
     @reservation = Reservation.new(params.require(:reservation).permit(:check_in, :check_out, :person, :user_id, :room_id))
+    @user = current_user
     if @reservation.check_in.nil? || @reservation.check_out.nil? || @reservation.person.nil? || @reservation.check_in >= @reservation.check_out
       flash[:notice] = "入力内容に不備があります"
       redirect_back(fallback_location: root_path)

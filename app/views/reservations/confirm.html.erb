@@ -9,6 +9,8 @@
     <p><%= r.hidden_field :check_in %></p>
     <p><%= r.hidden_field :check_out %></p>
     <p><%= r.hidden_field :person %></p>
+    <p><%= r.hidden_field :user_id, value: @user.id%></p>
+    <p><%= r.hidden_field :room_id, value: @reservation.room_id %></p>
 <%= r.submit "予約確定" %>  
 <%= link_to("戻る", :back, class: "btn btn-primary") %>  
 <% end %>

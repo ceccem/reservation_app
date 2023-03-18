@@ -20,9 +20,9 @@
       <% @rooms.each do |rom| %>
         <tr>
           <td scope="row"><img src=<%= rom.image %>></td>
-          <td><%= rom.name %></td>
-          <td><%= rom.detail %></td>
-          <td><%= rom.price %></td>
+          <td>施設名</td>
+          <td>紹介文</td>
+          <td>合計料金</td>
           <td><%= r.check_in.strftime("%Y/%m/%d") %></td>
           <td><%= r.check_out.strftime("%Y/%m/%d") %></td>
           <td><%= r.created_at.to_s(:datetime_jp) %></td>
