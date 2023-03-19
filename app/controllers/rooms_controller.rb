@@ -73,7 +73,7 @@ class RoomsController < ApplicationController
     if @area.present?
       @rooms = Room.where(["address like?", "%#{params[:area]}%"])
     else @keyword.present?
-      @rooms = Room.where(["name like? OR detail like? OR address like?", "%#{params[:keyword]}%", "%#{params[:keyword]}", "%#{params[:keyword]}%"])
+      @rooms = Room.where(["name like? OR detail like?", "%#{params[:keyword]}%", "%#{params[:keyword]}%"])
     end
     render "index"
   end

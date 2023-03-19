@@ -5,42 +5,21 @@
             旅をしよう
         </h2>
         <div class="first_view_search">
-            <div class="serach_top">
-                <%= form_with url: search_path, method: :get, local: true do |f| %>
-                    <%= f.text_field :area, :size=>"40", placeholder: "エリア名を入力" %>
-                    <%= f.submit "検索" %>
-                <% end %>
-            </div>
+            <%= form_with url: search_path, method: :get, local: true do |f| %>
+                <%= f.text_field :area, class: "search_form", placeholder: "エリア名を入力" %>
+                <%= f.submit "検索" %>
+            <% end %>
         </div>
     </div>
 </div>
 <div class="first_view_main">
     <h2>おすすめのエリア</h2>
     <div class="first_view_card">
-        <div class="card tokyo_card" style="width: 18rem;">
-            <img class="card-img-top">
-            <div class="card-body">
-                <a href="/rooms"><p class="card-text">東京</p></a>
-            </div>
-        </div>
-        <div class="card osaka_card" style="width: 18rem;">
-            <img class="card-img-top">
-            <div class="card-body">
-                <p class="card-text">大阪</p>
-            </div>
-        </div>
-        <div class="card kyoto_card" style="width: 18rem;">
-            <img class="card-img-top">
-            <div class="card-body">
-                <p class="card-text">京都</p>
-            </div>
-        </div>
-        <div class="card sapporo_card" style="width: 18rem;">
-            <img class="card-img-top">
-            <div class="card-body">
-                <p class="card-text">札幌</p>
-            </div>
-        </div>
+        <a href="http://localhost:3000/search?area=%E6%9D%B1%E4%BA%AC&commit=%E6%A4%9C%E7%B4%A2" class="card tokyo_card" style="width: 18rem;">東京</a>
+        <a href="http://localhost:3000/search?area=%E5%A4%A7%E9%98%AA&commit=%E6%A4%9C%E7%B4%A2" class="card osaka_card" style="width: 18rem;">大阪</a>
+        <a href="http://localhost:3000/search?area=%E4%BA%AC%E9%83%BD&commit=%E6%A4%9C%E7%B4%A2" class="card kyoto_card" style="width: 18rem;">京都</a>
+        <a href="http://localhost:3000/search?area=%E6%9C%AD%E5%B9%8C&commit=%E6%A4%9C%E7%B4%A2" class="card sapporo_card" style="width: 18rem;">札幌</a>
+        
     </div>
 </div>   
 

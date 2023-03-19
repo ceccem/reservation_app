@@ -99,8 +99,14 @@
    text-align: center;
 }
 
-.serach_top {
-   margin: 80px;
+.first_view_search {
+   margin-top: 80px;
+   height: 80px;
+   text-align: center;
+}
+.search_form {
+   width: 35%;
+   margin: auto;
 }
 
 
@@ -127,6 +133,9 @@
    background-size: cover;
    background-position-x: 40%;
    height: 350px;
+   color: black;
+   text-decoration: none;
+   font-size: 25px;
 }
 
 .osaka_card {
@@ -134,18 +143,27 @@
    background-size: cover;
    background-position-y: 35%;
    height: 350px;
+   color: black;
+   text-decoration: none;
+   font-size: 25px;
 }
 
 .kyoto_card {
    background-image: url('kyoto.jpg');
    background-size: cover;
    height: 350px;
+   color: black;
+   text-decoration: none;
+   font-size: 25px;
 }
 
 .sapporo_card {
    background-image: url('sapporo.jpg');
    background-size: cover;
    height: 350px;
+   color: black;
+   text-decoration: none;
+   font-size: 25px;
 }
 
 /* room_form */
