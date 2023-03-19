@@ -40,7 +40,7 @@
       <div class="account_settings">
           <div class="account_settings_top">
               <h2>アカウント</h2>
-              <%= link_to("アカウント編集", "/users/profile", class: "btn btn-outline-primary") %>   
+              <%= link_to("アカウント編集", edit_user_registration_path, class: "btn btn-outline-primary") %>   
           </div>
           <div class ="account_settings_main">
               <table>
@@ -65,7 +65,7 @@
       <div class="account_settings">
           <div class="account_settings_top">
               <h2>プロフィール</h2>
-              <%= link_to("プロフィール編集", edit_user_registration_path, class: "btn btn-outline-primary") %>   
+              <%= link_to("プロフィール編集", "/users/profile", class: "btn btn-outline-primary") %>   
           </div>
           <div class ="account_settings_main">
               <table>

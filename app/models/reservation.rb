@@ -1,7 +1,7 @@
 class Reservation < ApplicationRecord
 
     belongs_to :room, class_name: "Room", foreign_key: "room_id", optional: true
-    belongs_to :room, class_name: "User", foreign_key: "user_id", optional: true
+    belongs_to :user, class_name: "User", foreign_key: "user_id", optional: true
 
     validates :check_in, presence: true
     validates :check_out, presence:true
@@ -15,4 +15,5 @@ class Reservation < ApplicationRecord
             errors.add(:check_out)
         end
     end
+
 end

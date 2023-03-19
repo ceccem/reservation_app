@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
     def index
-        @users = User.all
-        @rooms = Room.all
     end
     
     def show

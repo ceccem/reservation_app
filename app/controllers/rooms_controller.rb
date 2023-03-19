@@ -12,25 +12,27 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id])
     @user = current_user
     @reservation = Reservation.new
+    @reservation.room_id = @room.id
   end
 
   # GET /rooms/new
   def new
-    @room = Room.new
     @user = current_user
+    @room = Room.new
   end
 
   # GET /rooms/1/edit
   def edit
+    @user = current_user
   end
 
   # POST /rooms or /rooms.json
   def create
     @room = Room.new(params.require(:room).permit(:name, :detail, :price, :address, :image, :user_id))
-    @user= current_user
+    @room.user_id = current_user.id
     respond_to do |format|
       if @room.save
-        format.html { redirect_to room_url(@room), notice: "Room was successfully created." }
+        format.html { redirect_to room_url(@room), notice: "施設が登録されました" }
         format.json { render :show, status: :created, location: @room }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -43,7 +45,7 @@ class RoomsController < ApplicationController
   def update
     respond_to do |format|
       if @room.update(room_params)
-        format.html { redirect_to room_url(@room), notice: "Room was successfully updated." }
+        format.html { redirect_to room_url(@room), notice: "施設情報が更新されました" }
         format.json { render :show, status: :ok, location: @room }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -55,15 +57,14 @@ class RoomsController < ApplicationController
   # DELETE /rooms/1 or /rooms/1.json
   def destroy
     @room.destroy
-
     respond_to do |format|
-      format.html { redirect_to rooms_url, notice: "Room was successfully destroyed." }
+      format.html { redirect_to rooms_url, notice: "施設が削除されました" }
       format.json { head :no_content }
     end
   end
 
   def own
-    @rooms = Room.where(user_id: current_user.id)
+    @rooms = Room.where(user_id: current_user)
   end
 
   private

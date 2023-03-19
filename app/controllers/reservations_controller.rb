@@ -1,7 +1,6 @@
 class ReservationsController < ApplicationController
   def index
-    @reservations = Reservation.all
-    @rooms = Room.all
+    @reservations = Reservation.where(user_id: current_user.id)
   end
 
   def new
@@ -12,7 +11,6 @@ class ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(params.require(:reservation).permit(:check_in, :check_out, :person, :user_id, :room_id))
     if @reservation.save
-      binding.pry
       flash[:notice] = "登録しました"
       redirect_to "/reservations"
     else
