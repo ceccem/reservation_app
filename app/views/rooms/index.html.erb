@@ -1,9 +1,16 @@
 
 <div class="room_index_container">
   <div class="room_index_top">
-    <h1>ここに検索エンジン置くよ</h1>
+    <%= form_with url: search_path, method: :get, local: true do |f| %>
+    <%= f.text_field :area, placeholder: "エリア名を入力" %>
+    <%= f.text_field :keyword, placeholder: "他を入力" %>
+    <%= f.submit "検索" %>
+  <% end %>
   </div>
   <div class="room_index_main">
+    <div class="index_count">
+      <%= "#{@rooms.count}件が見つかりました。" %>
+    </div>
     <div class="row row-cols-1 row-cols-md-3 g-4">
       <% @rooms.each do |r| %>
         <div class="col">

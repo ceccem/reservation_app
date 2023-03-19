@@ -5,10 +5,12 @@
             旅をしよう
         </h2>
         <div class="first_view_search">
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-primary" type="submit">Search</button>
-            </form>
+            <div class="serach_top">
+                <%= form_with url: search_path, method: :get, local: true do |f| %>
+                    <%= f.text_field :area, :size=>"40", placeholder: "エリア名を入力" %>
+                    <%= f.submit "検索" %>
+                <% end %>
+            </div>
         </div>
     </div>
 </div>

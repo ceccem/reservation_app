@@ -67,6 +67,17 @@ class RoomsController < ApplicationController
     @rooms = Room.where(user_id: current_user)
   end
 
+  def search
+    @area = params[:area]
+    @keyword = params[:keyword]
+    if @area.present?
+      @rooms = Room.where(["address like?", "%#{params[:area]}%"])
+    else @keyword.present?
+      @rooms = Room.where(["name like? OR detail like? OR address like?", "%#{params[:keyword]}%", "%#{params[:keyword]}", "%#{params[:keyword]}%"])
+    end
+    render "index"
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_room

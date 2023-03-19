@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get "reservations/index" => "reservations#index"
   post "reservations/confirm" => "reservations#confirm"
   get "rooms/own" => "rooms#own"
+  get "search" => "rooms#search"
   resources :rooms, :reservations
   root to: "homes#top"
   get "users/profile" => "users#profile"

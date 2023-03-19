@@ -99,19 +99,10 @@
    text-align: center;
 }
 
-.first_view_search {
-   display: flex;
-   align-items: center;
-   position: relative;
-   margin-top: 30px;
+.serach_top {
+   margin: 80px;
 }
 
-.d-flex {
-   width: 50%;
-   position: absolute;
-   top: 50%;
-   left: 25%;
-}
 
 .first_view_main {
    margin-bottom: 260px;
