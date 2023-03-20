@@ -117,7 +117,7 @@
 .first_view_card {
    display: flex;
    flex-wrap: wrap;
-   margin: 50px 200px;
+   margin: 60px 200px;
 }
 
 .card {
