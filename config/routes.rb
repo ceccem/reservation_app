@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get "reservations/index" => "reservations#index"
   post "reservations/confirm" => "reservations#confirm"
+  patch "users/update" => "users#update"
   get "rooms/own" => "rooms#own"
   get "search" => "rooms#search"
   resources :rooms, :reservations
